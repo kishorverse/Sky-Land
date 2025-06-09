@@ -87,5 +87,3 @@ With great code comes great responsibility... this is my gift, my curse. Who am 
 
 **Skyland** is your go-to solution for safe and efficient drone landings. Let's take drone technology to new heights! 🚀
 ```
-
----
