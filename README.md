@@ -1,89 +1,90 @@
-# Skyland - Optimal Drone Landing System 🚁🌍
+# Skyland – Optimal Drone Landing System
 
-![Drone Landing](https://img.shields.io/badge/Status-Active-brightgreen) 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue) 
+![Drone Landing](https://img.shields.io/badge/Status-Active-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Deep Learning](https://img.shields.io/badge/Framework-PyTorch-orange)
 
-Hi Again, This is Santhosh, your friendly neighbourhood coder. Alright, let’s do this one last time - this is Skyland.
-Welcome to **Skyland**, an innovative project designed to enable safe and optimal drone landings using **semantic segmentation** of aerial images. This system leverages state-of-the-art deep learning models to identify safe landing zones while avoiding obstacles such as buildings, trees, and other hazards.
+Skyland is a deep learning–based system designed to enable safe and optimal drone landings using semantic segmentation of aerial imagery. The system identifies safe landing zones while avoiding obstacles such as buildings, vegetation, and other hazards.
 
 ---
 
-## 📌 Overview
+## Overview
 
-Skyland is a deep learning-based system that processes aerial images to segment terrain into safe and unsafe zones for drone landings. The project uses **semantic segmentation models** like **UNet** and **PSPNet**, trained on the **Semantic Drone Dataset**, to accurately classify terrain types. The system also includes an algorithm to autonomously identify the safest landing spots based on the segmentation results.
+Skyland processes aerial images and segments terrain into safe and unsafe regions for drone landing. The project utilizes semantic segmentation architectures such as **UNet** and **PSPNet**, trained on the **Semantic Drone Dataset**, to classify terrain into 24 distinct categories. A post-processing algorithm identifies optimal landing areas based on segmentation outputs.
 
-### Key Features:
-- **Semantic Segmentation**: Accurately classifies terrain into 24 classes using deep learning models.
-- **Safe Landing Algorithm**: Identifies optimal landing zones by filtering out unsafe areas like buildings, trees, and people.
-- **Model Comparison**: Evaluates multiple models (Manual UNet, Fine-Tuned UNet, and PSPNet) to determine the best-performing architecture.
-- **Data Preparation**: Includes data visualization, augmentation, and preprocessing steps for robust model training.
+### Key Features
 
----
-
-## 🛠️ Models and Performance
-
-We experimented with three deep learning models for semantic segmentation:
-
-1. **Manual UNet**:
-   - Fully convolutional network with encoder-decoder architecture.
-   - **Test Accuracy**: 79.35%
-
-2. **Fine-Tuned UNet**:
-   - UNet with a **ResNet-50 backbone** pre-trained on ImageNet.
-   - **Test Accuracy**: 85.99% (Best Performing Model)
-
-3. **Fine-Tuned PSPNet**:
-   - A state-of-the-art semantic segmentation model pre-trained on ImageNet.
-   - **Test Accuracy**: 81.13%
-
-The **Fine-Tuned UNet** outperformed the other models and was selected as the final model for the Skyland system.
+- **Semantic Segmentation**: Classifies aerial terrain into 24 classes using deep learning models.
+- **Safe Landing Detection Algorithm**: Filters unsafe regions (roofs, trees, people, etc.) and prioritizes safe surfaces.
+- **Model Evaluation**: Comparative analysis of Manual UNet, Fine-Tuned UNet, and PSPNet.
+- **Data Processing Pipeline**: Includes data visualization, augmentation, and preprocessing for robust training.
 
 ---
 
-## 🚀 How It Works
+## Models and Performance
 
-1. **Data Preparation**:
-   - Aerial Semantic Segmentation Drone Dataset a freely available dataset that can be downloaded via kaggle - [https://www.kaggle.com/datasets/bulentsiyah/semantic-drone-dataset]
-   - Data visualization, augmentation, and preprocessing are handled within the code.
+### 1. Manual UNet
+- Encoder-decoder convolutional architecture  
+- **Test Accuracy:** 79.35%
 
-2. **Model Training**:
-   - The models are trained on the dataset to segment aerial images into 24 terrain classes.
-   - Metrics like accuracy, IoU (Intersection over Union), and loss are tracked during training.
+### 2. Fine-Tuned UNet (ResNet-50 Backbone)
+- UNet with ImageNet-pretrained ResNet-50 encoder  
+- **Test Accuracy:** 85.99% (Best Performing Model)
 
-3. **Safe Landing Algorithm**:
-   - The segmented image is processed to identify safe landing zones.
-   - Safe classes (e.g., paved areas, grass) are prioritized, while avoid classes (e.g., roofs, trees, people) are excluded.
+### 3. Fine-Tuned PSPNet
+- Pyramid Scene Parsing Network with pretrained backbone  
+- **Test Accuracy:** 81.13%
 
-4. **Output**:
-   - The system outputs a map highlighting safe landing zones for the drone.
-
----
-
-## 📊 Results
-
-- **Fine-Tuned UNet** achieved the highest accuracy of **85.99%**.
-- Safe landing zones are accurately identified, avoiding obstacles like buildings and trees.
-- Visualizations of segmented images and safe zones are provided in the `results/` folder.
+The Fine-Tuned UNet achieved the highest performance and was selected as the final model.
 
 ---
 
-## 🚀 Future Work
+## System Workflow
 
-- Train models for higher epochs to improve accuracy.
-- Integrate real-time drone landing capabilities.
-- Expand the dataset to include more diverse terrains and conditions.
+### 1. Data Preparation
+- Uses the Semantic Drone Dataset (Kaggle).
+- Includes preprocessing, augmentation, and visualization.
+
+Dataset Link:  
+https://www.kaggle.com/datasets/bulentsiyah/semantic-drone-dataset
+
+### 2. Model Training
+- Trained for multi-class segmentation (24 classes).
+- Metrics tracked: Accuracy, IoU (Intersection over Union), and Loss.
+
+### 3. Safe Landing Algorithm
+- Processes segmentation outputs to determine viable landing zones.
+- Safe classes (e.g., paved areas, grass) are prioritized.
+- Unsafe classes (e.g., roofs, trees, humans) are excluded.
+
+### 4. Output
+- Generates a visual map highlighting optimal landing regions.
+- Results are stored in the `results/` directory.
 
 ---
 
-## 📧 Contact
+## Results
 
-With great code comes great responsibility... this is my gift, my curse. Who am I? Your friendly neighbourhood coder.
-- **Santhosh M**  
-- **Email**: santhoshmayilraj@gmail.com  
-- **GitHub**: [santhoshmayilraj](https://github.com/santhoshmayilraj)  
+- Fine-Tuned UNet achieved **85.99% test accuracy**.
+- The system reliably identifies obstacle-free landing regions.
+- Segmentation visualizations and safe-zone outputs are included in the repository.
 
 ---
 
-**Skyland** is your go-to solution for safe and efficient drone landings. Let's take drone technology to new heights! 🚀
-```
+## Future Improvements
+
+- Extend training duration and optimize hyperparameters.
+- Implement real-time inference for autonomous drone systems.
+- Expand dataset diversity to improve generalization.
+
+---
+
+## Author
+
+**Kishor S**  
+Email: kishorverse2004@gmail.com  
+GitHub: https://github.com/kishorverse  
+
+---
+
+Skyland provides a scalable and efficient approach to autonomous drone landing using computer vision and deep learning techniques.
